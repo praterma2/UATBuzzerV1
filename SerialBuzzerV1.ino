@@ -17,6 +17,7 @@ int buzzer2 = 19;
 int buzzer3 = 4;
 int buzzer4 = 5;
 int reset1 = 18;
+//int QuestNum = 0;
 
 
 void setup() {
@@ -31,10 +32,14 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
+  delay(500);
+//  char buf[10];
+//  sprintf(buf, "Qnum %d", sensorValue);
+//  Serial.println(buf);
   int currPin = 0;
-//  sensorValue++;
-//  Serial.print("question# ");
-//  Serial.println(sensorValue);
+  
+  Serial.print("question# ");
+  Serial.println(sensorValue);
   while(currPin == 0){
     bool buzz1 = digitalRead(buzzer1);
     bool buzz2 = digitalRead(buzzer2);
@@ -61,6 +66,6 @@ void loop() {
   while(res1 == 1){
     res1 = digitalRead(reset1);
   }
-  
+  sensorValue++;
   delay(10);        // delay in between reads for stability
 }
